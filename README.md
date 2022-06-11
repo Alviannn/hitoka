@@ -1,28 +1,24 @@
 # About
-My personal boilerplate for working on Node.js + TypeScript + Express + PostgreSQL.
+A simple backend application called **Hitobito no Kauntā**, or **HitoKa** for short.
 
-Originally this is made for the Research and Development (RnD) division in BNCC@Bandung.
-But I decided to make it open-source under my account since I was the one who made it and
-because I have been using it for my projects or other projects that is using this techstack.
-
-To see the dependencies used in this boilerplate, [go here](#dependencies).
+It is an application designed to display data on the number of visitors in a place based on data taken by sensors that have been installed at the location desired by the user.
 
 ## Table of Contents
-- [Entity-Relationship Diagram](#entity-relationship-diagram)
 - [Quick Start](#quick-start)
+- [Technologies](#technologies)
 - [Project Structure](#project-structure)
 - [Commands](#commands)
 - [Environment Variables](#environment-variables)
-- [Dependencies](#dependencies)
-
-## Entity-Relationship Diagram
-![erd](.github/ERD.png)
 
 ## Quick Start
-1. Make sure you have installed [Yarn](https://classic.yarnpkg.com/lang/en/) and [PostgreSQL](https://www.postgresql.org/download/).
+1. Make sure you have installed [Yarn](https://classic.yarnpkg.com/lang/en/) and [Docker](https://www.docker.com/get-started/).
 1. Clone the repo
    ```sh
-   git clone https://github.com/Alviannn/express-ts-boilerplate.git
+   git clone https://github.com/Alviannn/hitoka-be.git
+   ```
+1. Run docker compose
+   ```sh
+   docker compose up
    ```
 1. Install the dependencies
    ```sh
@@ -33,14 +29,17 @@ To see the dependencies used in this boilerplate, [go here](#dependencies).
    ```sh
    yarn jwt:generate
    ```
-1. (_Optional_) If you want, you can seed data
-   ```sh
-   yarn seed
-   ```
 1. Run the dev server
    ```sh
    yarn dev
    ```
+
+## Technologies
+1. Node.js + TypeScript
+1. Express.js
+1. PostgreSQL + TypeORM
+1. JSONWebToken
+1. Logger
 
 ## Project Structure
 ```
@@ -150,48 +149,3 @@ DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 ```
-
-## Dependencies
-1. [express](https://www.npmjs.com/package/express) <br>
-   * Node.js minimal backend framework.
-1. [cors](https://www.npmjs.com/package/cors) <br>
-   * Middleware to enable CORS (Cross-origin resource sharing).
-   * Allows the frontend devs to access the backend.
-1. [helmet](https://www.npmjs.com/package/helmet)
-   * Secures the backend HTTP headers.
-1. [compression](https://www.npmjs.com/package/compression)
-   * Compression middleware.
-   * It compresses the server response with GZIP, the client will then receive the responses in smaller size of data.
-1. [http-status-codes](https://www.npmjs.com/package/http-status-codes) <br>
-   * To avoid _magic numbers_ and use constants enum. Ex: Using `BAD_REQUEST` instead of `400`.
-1. [joi](https://www.npmjs.com/package/joi) <br>
-   * Library for validating JSON, making it easy to make sure all (or certain) properties exists and valid.
-1. [luxon](https://www.npmjs.com/package/luxon) <br>
-   * Better date and time library than the default `Date` from JS.
-   * Why not `momentjs`? Because it has stopped it's development, [check here](https://momentjs.com/docs/#/-project-status/) and I personally like it.
-1. [pg](https://www.npmjs.com/package/pg) <br>
-   * PostgreSQL database for our backend projects, although we won't be using this directly, but through `typeorm`.
-1. [typeorm](https://www.npmjs.com/package/typeorm) <br>
-   * ORM (Object-relational mapping) library for Node.js.
-   * Helps us to access the database without a need to write SQL queries.
-     * It can prevent typos in SQL query.
-     * It can make cleaner codes.
-     * It's perfect for TypeScript.
-1. [bcrypt](https://www.npmjs.com/package/bcrypt) <br>
-   * Securing passwords easily, it hashes and also adds salt to it.
-   * It's a bad practice to store passwords in plain-text, [this forum explains why it's bad](https://security.stackexchange.com/q/120540).
-1. [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) <br>
-    * Token based user authentication, we need to know whether user is logged in or not.
-1. [ts-node](https://www.npmjs.com/package/ts-node)
-    * Able to execute TypeScript Node.js without compiling.
-    * It's used in development environment.
-1. [cross-env](https://www.npmjs.com/package/cross-env)
-    * Run Node.js scripts with custom environment without the need of .env.
-    * In Unix based OS, it's easy to achieve this even without `cross-env`,
-      but for Windows users it's trickier.
-1. [morgan](https://www.npmjs.com/package/morgan)
-    * A logger middleware for HTTP request.
-    * It logs the event for each requests.
-1. [winston](https://www.npmjs.com/package/winston)
-    * Flexible logger for anything and everything.
-    * It's the main logger with `morgan`, and it's as powerful as ever.

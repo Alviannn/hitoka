@@ -83,12 +83,6 @@ yarn start
 yarn dev
 ```
 
-Data seeding:
-```sh
-# Add a bunch of prepared data in `seeder.ts` file
-yarn seed
-```
-
 Cleans the compiled files (in `build` directory):
 ```sh
 yarn clean

@@ -2,7 +2,8 @@ import { DateTime } from 'luxon';
 import { dateTransformer } from '.';
 import {
     BaseEntity, Entity,
-    Column, PrimaryGeneratedColumn
+    PrimaryGeneratedColumn,
+    CreateDateColumn
 } from 'typeorm';
 
 @Entity('counts')
@@ -11,12 +12,7 @@ export class Count extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column({
-        name: 'created_at',
-        type: 'timestamp',
-        transformer: dateTransformer,
-        default: 'NOW()'
-    })
+    @CreateDateColumn({ name: 'created_at', transformer: dateTransformer })
     createdAt!: DateTime;
 
 }

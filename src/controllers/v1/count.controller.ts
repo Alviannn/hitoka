@@ -1,3 +1,5 @@
+import authenticate from '../../middlewares/authenticate.middleware';
+
 import { Request, Response } from 'express';
 import { sendResponse } from '../../utils/api.util';
 import { countService } from '../../services/count.service';
@@ -7,7 +9,7 @@ import {
     ReqHandler
 } from '../../internals/decorators/express.decorator';
 
-@Controller({ path: 'counts' })
+@Controller({ path: 'counts', middlewares: [authenticate()] })
 export class CountController {
 
     @ReqHandler('GET', '/')

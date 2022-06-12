@@ -26,9 +26,10 @@ export class User extends BaseEntity {
     @Column({
         name: 'created_at',
         type: 'timestamp',
+        default: 'NOW()',
         transformer: dateTransformer
     })
-    createdAt = DateTime.utc();
+    createdAt!: DateTime;
 
     @Column({
         name: 'updated_at',

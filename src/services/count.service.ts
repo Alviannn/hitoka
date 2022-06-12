@@ -1,10 +1,22 @@
+import { DateTime } from 'luxon';
+import { Raw } from 'typeorm';
 import { Count } from '../database/entities/count.entity';
 
 class CountService {
 
-    async getTotal() {
-        const total = await Count.count();
-        return total;
+    async getTotal(filterToday = false) {
+        const today = DateTime.utc().toFormat('dd-MM-yyyy');
+
+        if (filterToday) {
+            return Count.countBy({
+                createdAt: Raw(
+                    (alias) => `TO_TIMESTAMP(${alias}, 'DD-MM-YYYY') = :today`,
+                    { today }
+                )
+            });
+        }
+
+        return Count.count();
     }
 
     async add() {

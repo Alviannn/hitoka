@@ -1,0 +1,73 @@
+*{
+    font-family: "Lato";
+}
+
+.title{
+    font-family: "Noto Sans JP";
+}
+
+.leftContainer, .rightContainer{
+    height: 100vh;
+    width: 100%;
+}
+
+.leftContainer{
+    background: #A86CC5;
+}
+
+.rightContainer{
+    background: #FFFFFF;
+}
+
+.p15{
+    padding-top: 150px;
+}
+
+.p6{
+    padding-top: 60px;
+}
+
+.m6{
+    margin-top: 60px;
+}
+
+.bold{
+    font-weight: bold;
+    font-size: 5vh;
+}
+
+.light{
+    font-weight: lighter;
+    font-size: 4vh;
+}
+
+.submit{
+    display: inline-block;
+    margin-top: 20px;
+    width: 30%;
+    border: none;
+    padding-bottom: 5px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.12);
+    background-color: #A86CC5;
+    color: #FFFFFF;
+    border-radius: 20px;
+    margin-left: 35%;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.submit:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #9b64b6;
+}
+
+#register,#login:hover{
+    cursor: pointer;
+    color: #9b64b6;
+    text-decoration: underline;
+}
+
+#registerPage{
+    display: none;
+}

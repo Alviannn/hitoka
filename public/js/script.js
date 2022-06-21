@@ -1,10 +1,7 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-undef */
 
-/** @type {JQueryAjaxSettings} */
-const DEFAULT_AJAX_SETTINGS = {
-    dataType: 'json',
-    contentType: 'application/json',
-};
+import { DEFAULT_AJAX_SETTINGS } from './index.js';
 
 // ----------------------------------------------------------------- //
 

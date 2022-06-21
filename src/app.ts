@@ -21,7 +21,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(handleLogging);
 
-app.set('views', path.resolve('./views/'));
 app.use(express.static(path.resolve('./public/')));
 
 app.use('/', indexRouter);

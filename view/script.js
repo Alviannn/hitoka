@@ -23,7 +23,6 @@ class User{
         return this.password;
     }
 
-
 }
 
 var registerButton = document.getElementById("register");

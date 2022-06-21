@@ -25,7 +25,7 @@ loginSwitchBtn.on('click', () => {
     loginPage.style.display = 'block';
 });
 
-loginBtn.on('click', () => {
+loginBtn.on('click', async () => {
     const emailInput = $('#email');
     const passwordInput = $('#password');
 
@@ -37,18 +37,19 @@ loginBtn.on('click', () => {
     }
 
     const data = JSON.stringify({ email, password });
-    $.ajax('/v1/auth/login', {
-        type: 'POST',
-        data,
-        success: (res) => {
-            const { message, status } = res;
+    try {
+        await $.ajax('/v1/auth/login', {
+            type: 'POST',
+            data,
+            ...DEFAULT_AJAX_SETTINGS
+        });
 
-            if (status === 'fail') {
-                return alert(message);
-            }
+        location.href = '/counter';
+    } catch (err) {
+        /** @type {JQuery.jqXHR} */
+        const res = err;
+        const { message } = res.responseJSON;
 
-            location.href = '/counter';
-        },
-        ...DEFAULT_AJAX_SETTINGS,
-    });
+        alert(message);
+    }
 });

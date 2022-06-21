@@ -13,7 +13,7 @@ export class userSeed1655821810553 implements MigrationInterface {
         );
         await runner.query(
             insertQuery,
-            ['Device', 'device@iot_device.com', '', await hashPassword('iotDevice91!')]
+            ['Device', 'device@iotdevice.com', '', await hashPassword('iotDevice91!')]
         );
     }
 
@@ -21,7 +21,7 @@ export class userSeed1655821810553 implements MigrationInterface {
         const deleteQuery = 'DELETE FROM users WHERE email = $1';
 
         await runner.query(deleteQuery, ['alviandq@gmail.com']);
-        await runner.query(deleteQuery, ['device@iot_device.com']);
+        await runner.query(deleteQuery, ['device@iotdevice.com']);
     }
 
 }

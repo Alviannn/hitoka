@@ -67,7 +67,7 @@ class AuthService {
     async generateToken(user: User | UserPayload, tokenType: TokenType) {
         let tokenSecret: string;
 
-        const signOption: jwt.SignOptions = { notBefore: config.jwt.notBefore };
+        const signOption: jwt.SignOptions = {};
         const payload: UserPayload = { id: user.id };
 
         if (tokenType === 'ACCESS') {

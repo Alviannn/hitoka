@@ -20,8 +20,6 @@ const config = {
 
         accessExpire: env.JWT_ACCESS_EXPIRE!,
         refreshExpire: env.JWT_REFRESH_EXPIRE!,
-
-        notBefore: '3s'
     },
     hashRounds: 12,
     db: {

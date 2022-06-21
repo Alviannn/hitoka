@@ -16,4 +16,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(handleLogging);
 
+app.set('view engine', 'ejs');
+
 export default app;

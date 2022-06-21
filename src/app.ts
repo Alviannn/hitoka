@@ -13,15 +13,15 @@ const app = express();
 
 // global middlewares
 app.use(compression());
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false
+}));
 app.use(cors(config.cors));
 app.use(cookieParser());
 app.use(express.json());
 app.use(handleLogging);
 
-app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views/'));
-
 app.use(express.static(path.resolve('./public/')));
 
 app.use('/', indexRouter);

@@ -21,8 +21,6 @@ async function refreshAuth() {
 }
 
 async function fetchCounting() {
-    console.log(HITOKA);
-
     const res = await $.ajax('/v1/counts', {
         type: 'GET',
         headers: {

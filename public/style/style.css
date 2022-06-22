@@ -1,73 +1,119 @@
-*{
-    font-family: "Lato";
+* {
+    font-family: 'Lato';
 }
 
-.title{
-    font-family: "Noto Sans JP";
+.title {
+    font-family: 'Noto Sans JP';
 }
 
-.leftContainer, .rightContainer{
+.leftContainer,
+.rightContainer {
     height: 100vh;
     width: 100%;
 }
 
-.leftContainer{
-    background: #A86CC5;
+.leftContainer {
+    background: #a86cc5;
 }
 
-.rightContainer{
-    background: #FFFFFF;
+.rightContainer {
+    background: #ffffff;
 }
 
-.p15{
+.p15 {
     padding-top: 150px;
 }
 
-.p6{
+.p6 {
     padding-top: 60px;
 }
 
-.m6{
+.m6 {
     margin-top: 60px;
 }
 
-.bold{
+.bold {
     font-weight: bold;
     font-size: 5vh;
 }
 
-.light{
+.light {
     font-weight: lighter;
     font-size: 4vh;
 }
 
-.submit{
+.submit {
     display: inline-block;
     margin-top: 20px;
     width: 30%;
     border: none;
     padding-bottom: 5px;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.12);
-    background-color: #A86CC5;
-    color: #FFFFFF;
+    background-color: #a86cc5;
+    color: #ffffff;
     border-radius: 20px;
     margin-left: 35%;
     font-size: 30px;
     font-weight: 600;
 }
 
-.submit:hover{
+.submit:hover {
     cursor: pointer;
     transform: scale(1.05);
     background-color: #9b64b6;
 }
 
-#register,#login:hover{
+#register,
+#login:hover {
     cursor: pointer;
     color: #9b64b6;
     text-decoration: underline;
 }
 
-#registerPage{
+#registerPage {
     display: none;
+}
+
+.tombol {
+    align-content: center;
+    border: none;
+    padding: 14px;
+    width: 30%;
+    border-radius: 30px;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(44, 62, 80, 0.6), -2px -2px 4px rgba(44, 62, 80, 0.6);
+    background: none;
+    font-size: 1.2em;
+    font-weight: 530;
+    position: relative;
+    overflow: hidden;
+    margin-left: 35%;
+    transition: all 300ms ease;
+    display: inline-block;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+.tombol:hover::after {
+    left: 0;
+}
+.tombol:hover {
+    color: white;
+}
+.tombol::after {
+    opacity: 0.75;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #a86cc5;
+    top: 0;
+    left: 100%;
+    border-radius: 30px;
+    z-index: -1;
+    transition: all 300ms ease;
+}
+
+.tombol:active {
+    border: 1px solid black;
 }

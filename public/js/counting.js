@@ -1,24 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-undef */
 
-import { DEFAULT_AJAX_SETTINGS } from './index.js';
-
-const HITOKA = {
-    accessToken: ''
-};
-
-async function refreshAuth() {
-    try {
-        const res = await $.ajax('/v1/auth/refresh', {
-            type: 'POST',
-            ...DEFAULT_AJAX_SETTINGS
-        });
-
-        HITOKA.accessToken = res.data.accessToken;
-    } catch (err) {
-        location.href = '/';
-    }
-}
+import { DEFAULT_AJAX_SETTINGS, HITOKA, refreshAuth } from './index.js';
 
 async function fetchCounting() {
     const res = await $.ajax('/v1/counts', {

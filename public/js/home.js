@@ -12,6 +12,7 @@ const loginPage = document.getElementById('loginPage');
 const registerPage = document.getElementById('registerPage');
 
 const loginBtn = $('#loginButton');
+const registerBtn = $('#registerButton');
 
 // ----------------------------------------------------------------- //
 
@@ -26,11 +27,8 @@ loginSwitchBtn.on('click', () => {
 });
 
 loginBtn.on('click', async () => {
-    const emailInput = $('#email');
-    const passwordInput = $('#password');
-
-    const email = String(emailInput.val()).trim();
-    const password = String(passwordInput.val()).trim();
+    const email = String($('#email').val());
+    const password = String($('#password').val());
 
     if (!email || !password) {
         return alert('Email and password cannot be empty');
@@ -45,6 +43,39 @@ loginBtn.on('click', async () => {
         });
 
         location.href = '/counter';
+    } catch (err) {
+        /** @type {JQuery.jqXHR} */
+        const res = err;
+        const { message } = res.responseJSON;
+
+        alert(message);
+    }
+});
+
+registerBtn.on('click', async () => {
+    const fullName = String($('#fullnameRegister').val());
+    const email = String($('#emailRegister').val());
+    const phone = String($('#phoneNumber').val());
+    const password = String($('#passwordRegister').val());
+    const confirmPassword = String($('#cPasswordRegister').val());
+
+    if (!fullName || !email || !phone || !password || !confirmPassword) {
+        return alert('Registration fields cannot be empty');
+    }
+    if (password !== confirmPassword) {
+        return alert("Confirm password and password doesn't match");
+    }
+
+    const data = JSON.stringify({ fullName, email, phone, password });
+    try {
+        await $.ajax('/v1/auth/register', {
+            type: 'POST',
+            data,
+            ...DEFAULT_AJAX_SETTINGS
+        });
+
+        alert('Successfully registered account!');
+        location.reload();
     } catch (err) {
         /** @type {JQuery.jqXHR} */
         const res = err;

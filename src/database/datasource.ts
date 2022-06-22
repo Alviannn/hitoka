@@ -40,11 +40,10 @@ function pathToLoadORM(type: ORMPathType) {
 
 export const appDataSource = new DataSource({
     type: 'postgres',
-    host: config.db.host,
-    port: config.db.port,
-    username: config.db.username,
-    password: config.db.password,
-    database: config.db.database,
+    url: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    },
     // This'll automatically modify the tables as soon as the server starts
     // therefore, it's very bad for production
     synchronize: config.isDev,

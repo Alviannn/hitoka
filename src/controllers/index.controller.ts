@@ -15,4 +15,8 @@ router.get('/counter', async (_, res) => {
     return res.sendFile(getViewPath('people_counter'));
 });
 
+router.get('/incremental', async (_, res) => {
+    return res.sendFile(getViewPath('increase_people'));
+});
+
 export default router;

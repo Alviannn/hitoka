@@ -46,7 +46,7 @@ export const appDataSource = new DataSource({
     },
     // This'll automatically modify the tables as soon as the server starts
     // therefore, it's very bad for production
-    synchronize: config.isDev,
+    synchronize: true,
     entities: [pathToLoadORM('entities')],
     migrations: [pathToLoadORM('migrations')],
     subscribers: [pathToLoadORM('subscribers')]
